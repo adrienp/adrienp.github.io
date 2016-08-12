@@ -4,23 +4,24 @@ layout: default
 
 <div id="projects">
   <ul class="list-inline">
-    <li>
-      <button class="filter btn btn-default" data-filter="all">Everything</button>
+    <li class="list-inline-item">
+      <button class="filter btn btn-outline-primary" data-filter="all">Everything</button>
     </li>
-    <li>
-      <button class="filter btn btn-default" data-filter=".tag-show">Show</button>
+    <li class="list-inline-item">
+      <button class="filter btn btn-outline-primary" data-filter=".tag-show">Show</button>
     </li>
-    <li>
-      <button class="filter btn btn-default" data-filter=".tag-video">Video</button>
+    <li class="list-inline-item">
+      <button class="filter btn btn-outline-primary" data-filter=".tag-video">Video</button>
     </li>
-  <ul>
-  <ul class="list-unstyled">
+  </ul>
+  <ul class="list-unstyled iso-grid">
+    <li class="iso-grid-sizer"></li>
     {% for project in site.projects %}
       {% capture thumbnail_url %}
         {% if project.youtube_id %}
           http://img.youtube.com/vi/{{ project.youtube_id }}/maxresdefault.jpg
-        {% elsif project.thumbnail %}
-          /images/projects/{{ project.thumbnail }}
+        {% elsif project.image %}
+          /images/projects/{{ project.image }}
         {% endif %}
       {% endcapture %}
       {% capture tag_classes %}
@@ -28,10 +29,12 @@ layout: default
           tag-{{ tag | slugify }}
         {% endfor %}
       {% endcapture %}
-      <li class="mix col-xs-3 {{ tag_classes | strip }}">
-        <a href="{{ project.url }}" class="project-thumbnail" style="background-image: url('{{ thumbnail_url | strip }}')">
-          {{ project.title }}
-        </a>
+      <li class="iso-grid-item {{ tag_classes | strip }}">
+        <div class="content">
+          <a href="{{ project.url }}" class="fill bg-cover" style="background-image: url('{{ thumbnail_url | strip }}')">
+            {{ project.title }}
+          </a>
+        </div>
       </li>
     {% endfor %}
   </ul>

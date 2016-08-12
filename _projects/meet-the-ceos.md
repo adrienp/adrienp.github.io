@@ -1,6 +1,6 @@
 ---
 title: "Meet the CEOs: A Start-up Musical"
-thumbnail: meet-the-ceos.jpg
+image: meet-the-ceos.jpg
 tags:
 - show
 ---
