@@ -3,51 +3,242 @@
 ---
 @charset "utf-8";
 
+$background-color: #fafafa;
+$title-color: #444;
+$accent-color: #529ecc;
 
-
-// Our variables
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$title-font-family: $base-font-family;
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+html, body {
+  height: 100%;
 }
 
+body {
+  background: $background-color;
+  font-size: 16px;
+}
 
+a, a:hover {
+  color: $accent-color;
+}
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+h1 > a, h1 > a:hover {
+  color: $title-color;
+}
+
+#page-header {
+  color: $background-color;
+  text-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+#page-header a {
+  color: inherit;
+}
+
+#header-jumbotron {
+  position: relative;
+  overflow: hidden;
+
+  height: 45vw;
+  max-height: 80vh;
+  min-height: 200px;
+  padding: 0;
+}
+
+// body.index-page:not(.tag-page):not(.search-page) #header-jumbotron {
+//   height: 45vw;
+// }
+
+#header-jumbotron, #header-jumbotron .jumbotron-background {
+  background: url('/images/header.jpg') center / cover;
+}
+
+#header-jumbotron .jumbotron-background {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate3d(0px,0px,0px);
+}
+
+#header-jumbotron .jumbotron-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dim-background #header-jumbotron .jumbotron-content {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile header sizing */
+@media (max-width: 767px) {
+  #header-jumbotron {
+    margin-top: 51px;
+    min-height: 100px;
+    max-height: 200px;
+  }
+}
+
+/* Desktop: Parallax Header */
+@media (min-width: 768px) {
+  #header-jumbotron .jumbotron-background {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  #header-jumbotron .container {
+    margin-left: 15px;
+  }
+}
+
+#header-jumbotron h1 {
+  margin-top: 10px;
+  font-family: $title-font-family;
+  font-weight: bold;
+}
+
+#header-jumbotron a.tag {
+  text-decoration: underline;
+}
+
+#header-jumbotron a.tag:before {
+  content: '#';
+}
+
+#top-nav {
+  font-family: {font:Nav font};
+  color: $title-color;
+  text-shadow: none;
+}
+
+#top-nav .icon-bar {
+  background-color: currentColor;
+}
+#top-nav a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  #top-nav {
+    transition: background-color 0.2s, border-color 0.2s;
+    background-color: rgba(248, 248, 248, 0.95);
+  }
+
+  #top-nav.transparent {
+    color: inherit;
+    text-shadow: inherit;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  #top-nav .navbar-brand {
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+
+  body.index-page:not(.tag-page):not(.search-page) #top-nav.transparent .navbar-brand {
+    opacity: 0;
+  }
+}
+
+.caption {
+  margin-top: 8px;
+}
+
+.post-tags a {
+  color: #aaa;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.post-meta {
+  display: flex;
+}
+.post-meta > *:not(:last-child) {
+  margin-right: 12px;
+}
+.post-meta .spacer {
+  flex: 1;
+}
+.post-meta a {
+  color: #aaa;
+}
+
+a.read_more {
+  text-decoration: underline;
+}
+
+.post img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
+}
+
+.post img {
+  border-radius: 6px;
+  height: auto;
+}
+
+figure {
+  padding-bottom: 10px;
+}
+
+.footer {
+  padding: 20px;
+}
+
+#pagination-nav {
+  text-align: center;
+}
+
+.video-player {
+  position: relative;
+}
+.video-player:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+.video-player > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.iframe-controls--desktop {
+  top: 50px !important;
+}
+
+/* Upcoming show calendar */
+#show-calendar {
+  height: 420px;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  #show-calendar {
+    height: 240px;
+  }
+}
+
+.mix {
+  display: none;
+}
+
+.project-thumbnail {
+  height: 140px;
+  background: no-repeat center / cover;
+  display: block;
+}

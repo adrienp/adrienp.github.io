@@ -2,7 +2,42 @@
 layout: default
 ---
 
-<div class="home">
+<div id="projects">
+  <ul class="list-inline">
+    <li>
+      <button class="filter btn btn-default" data-filter="all">Everything</button>
+    </li>
+    <li>
+      <button class="filter btn btn-default" data-filter=".tag-show">Show</button>
+    </li>
+    <li>
+      <button class="filter btn btn-default" data-filter=".tag-video">Video</button>
+    </li>
+  <ul>
+  <ul class="list-unstyled">
+    {% for project in site.projects %}
+      {% capture thumbnail_url %}
+        {% if project.youtube_id %}
+          http://img.youtube.com/vi/{{ project.youtube_id }}/maxresdefault.jpg
+        {% elsif project.thumbnail %}
+          /images/projects/{{ project.thumbnail }}
+        {% endif %}
+      {% endcapture %}
+      {% capture tag_classes %}
+        {% for tag in project.tags %}
+          tag-{{ tag | slugify }}
+        {% endfor %}
+      {% endcapture %}
+      <li class="mix col-xs-3 {{ tag_classes | strip }}">
+        <a href="{{ project.url }}" class="project-thumbnail" style="background-image: url('{{ thumbnail_url | strip }}')">
+          {{ project.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<!-- <div class="home">
 
   <h1 class="page-heading">Posts</h1>
 
@@ -20,4 +55,4 @@ layout: default
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-</div>
+</div> -->
