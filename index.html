@@ -3,17 +3,13 @@ layout: default
 ---
 
 <div id="projects">
-  <ul class="list-inline">
-    <li class="list-inline-item">
-      <button class="filter btn btn-outline-primary" data-filter="all">Everything</button>
-    </li>
-    <li class="list-inline-item">
-      <button class="filter btn btn-outline-primary" data-filter=".tag-show">Show</button>
-    </li>
-    <li class="list-inline-item">
-      <button class="filter btn btn-outline-primary" data-filter=".tag-video">Video</button>
-    </li>
-  </ul>
+  <div class="iso-filter-groups btn-toolbar m-b-1" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="iso-filter-group btn-group pull-xs-right" role="group" aria-label="First group">
+      <button type="button" class="iso-filter btn btn-outline-primary active" data-filter="all">All</button>
+      <button type="button" class="iso-filter btn btn-outline-primary" data-filter="shows">Shows</button>
+      <button type="button" class="iso-filter btn btn-outline-primary" data-filter="videos">Videos</button>
+    </div>
+  </div>
   <ul class="list-unstyled iso-grid">
     <li class="iso-grid-sizer"></li>
     {% for project in site.projects %}
