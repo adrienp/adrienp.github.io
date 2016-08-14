@@ -1,30 +1,35 @@
 $(function() {
+  initGrid($);
+});
+
+function initGrid($) {
   var filter_values = {
     'all': "*",
-    'shows': ".tag-show",
-    'videos': ".tag-video"
+    'shows': ".type-show",
+    'videos': ".type-video"
   };
 
-  var $iso_grid = $('.iso-grid');
+  var $grid = $('.grid');
+  var $grid_items = $grid.find('.grid-items');
 
-  $iso_grid.isotope({
-    itemSelector: '.iso-grid-item',
+  $grid_items.isotope({
+    itemSelector: '.grid-item',
     percentPosition: true,
     masonry: {
-      columnWidth: '.iso-grid-sizer'
+      columnWidth: '.grid-item-sizer'
     }
   });
 
-  $('.iso-filter').on('click', function(e) {
+  $grid.find('.grid-filter').on('click', function(e) {
     var $filter = $(this);
-    var filter_value = filter_values[$filter.data('filter')];
+    var filter_value = filter_values[$filter.data('grid-filter')];
 
-    $iso_grid.isotope({
+    $grid_items.isotope({
       filter: filter_value
     });
 
-    var $filter_group = $filter.closest('.iso-filter-group');
-    $filter_group.find('.iso-filter').removeClass('active');
+    var $filter_group = $filter.closest('.grid-filter-group');
+    $filter_group.find('.grid-filter').removeClass('active');
     $filter.addClass('active');
   });
-});
+}

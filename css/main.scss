@@ -19,6 +19,35 @@
   background-position: center;
 }
 
+.bg-inverse {
+  color: $gray-lightest !important;
+}
+
+.bg-dim {
+  background-color: rgba(black, 0.5);
+}
+
+.text-light {
+  color: $gray-lightest !important;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.vertical-center {
+  display: table;
+
+  > * {
+    vertical-align: middle;
+    display: table-cell;
+  }
+}
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   &:before {
@@ -40,12 +69,53 @@
   background-color: rgba(#fafafa, 0.95);
 }
 
-.iso-grid-sizer, .iso-grid-item {
-  width: 50%;
-  display: block;
+.jumbotron {
+  position: relative;
+
+  a {
+    color: $gray-dark;
+  }
 }
 
-.iso-grid-item {
+.jumbotron-background, .jumbotron-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.jumbotron-background {
+  background-size: cover;
+  background-position: center;
+}
+
+.jumbotron-dark {
+  .jumbotron-overlay {
+    background-color: rgba(black, 0.5);
+  }
+
+  a {
+    color: $gray-lightest;
+  }
+}
+
+.jumbotron-light {
+  .jumbotron-overlay {
+    background-color: rgba(white, 0.5);
+  }
+}
+
+.jumbotron-content {
+  position: relative;
+}
+
+.grid-item-sizer, .grid-item {
+  width: 50%;
+  display: block;
+  float: left;
+}
+
+.grid-item {
   @include aspect-ratio(1, 1);
 
   .content {
@@ -53,34 +123,44 @@
   }
 }
 
-.iso-2-1, .iso-2-2 {
+.grid-2-1, .grid-2-2 {
   width: 100%;
 }
 
-.iso-2-1 {
+.grid-2-1 {
   @include aspect-ratio(2, 1);
 }
 
-.iso-1-2 {
+.grid-1-2 {
   @include aspect-ratio(1, 2);
 }
 
 @include media-breakpoint-up(md) {
-  .iso-grid-sizer, .iso-grid-item {
+  .grid-item-sizer, .grid-item {
     width: 33.333%;
   }
 
-  .iso-2-1, .iso-2-2 {
+  .grid-2-1, .grid-2-2 {
     width: 66.666%;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .iso-grid-sizer, .iso-grid-item {
+  .grid-item-sizer, .grid-item {
     width: 25%;
   }
 
-  .iso-2-1, .iso-2-2 {
+  .grid-2-1, .grid-2-2 {
     width: 50%;
+  }
+}
+
+.link-focus-show {
+  display: none;
+}
+
+a:hover, a:focus, a:active {
+  .link-focus-show {
+    display: block;
   }
 }
