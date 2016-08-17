@@ -2,6 +2,7 @@
 layout: project/video
 title: "Winter Sex"
 subtitle: "What it's like to have sex in the winter."
+date: "2016-02-19"
 
 video:
   youtube: Y3P3oFqtMlY

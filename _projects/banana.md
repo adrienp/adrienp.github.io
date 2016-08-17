@@ -2,6 +2,7 @@
 layout: project/video
 title: "Banana"
 subtitle: "Don't move!"
+date: "2016-03-18"
 
 video:
   youtube: sgiUXUmYWTM

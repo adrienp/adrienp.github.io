@@ -2,7 +2,7 @@
   <nav class="nav navbar-light navbar-fixed-top" id="top-nav">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ site.baseurl }}">{{ site.title }}</a>
-      <div class="pull-xs-right">
+      <div class="pull-xs-right text-xs-right">
         <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#header-nav-pages" aria-controls="header-nav-pages" aria-expanded="false" aria-label="Toggle navigation">
           &#9776;
         </button>
@@ -10,7 +10,9 @@
           <nav class="navbar-nav">
             {% for page in site.pages %}
               {% if page.title %}
-                <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                <div class="nav-item">
+                  <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                </div>
               {% endif %}
             {% endfor %}
           </ul>
@@ -36,7 +38,7 @@
       <div class="jumbotron-overlay"></div>
     </div>
     <div class="jumbotron-content container">
-      <h1><a href="{{ page.url | default: site.baseurl }}">{{ page.title | default: site.title }}</a></h1>
+      <h1 class="display-3"><a href="{{ page.url | default: site.baseurl }}">{{ page.title | default: site.title }}</a></h1>
       <p>
         {% if page.title %}
           {{ page.subtitle }}

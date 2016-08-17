@@ -2,6 +2,7 @@
 layout: project/video
 title: "Perfect Woman"
 subtitle: "Casting descriptions for women are the worst"
+date: "2016-05-26"
 
 video:
   youtube: 3x79zTifbq8
@@ -11,7 +12,7 @@ types:
 - video
 - sketch
 roles:
-- camera
+- camera-operator
 - editor
 
 header:

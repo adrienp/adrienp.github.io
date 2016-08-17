@@ -2,6 +2,7 @@
 layout: project/video
 title: "My Strange Affliction"
 subtitle: "The Wicked Witch lives in Brooklyn"
+date: "2016-03-10"
 
 video:
   youtube: YNUePsDsyKI

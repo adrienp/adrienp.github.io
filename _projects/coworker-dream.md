@@ -2,6 +2,7 @@
 layout: project/video
 title: "When Your Co-Worker Wants To Tell You About Their Dream"
 subtitle: "A Dumb Video"
+date: "2016-06-01"
 
 video:
   youtube: HJ4XWZojA7E

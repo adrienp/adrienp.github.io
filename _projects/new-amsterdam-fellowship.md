@@ -2,6 +2,7 @@
 layout: project/video
 title: "The New Amsterdam Fellowshop of Compatriots"
 subtitle: "If Wes Anderson directed Friends"
+date: "2016-02-12"
 
 video:
   youtube: f-WZZ8YSGd0

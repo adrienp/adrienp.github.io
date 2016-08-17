@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Projects"
+---
+
+{% assign projects = site.projects | reverse %}
+
+<ul class="list-unstyled">
+  {% for project in projects %}
+    <li>
+      <a class="row" href="{{ project.url }}">
+        <div class="col-md-6 col-lg-8 m-b-1">
+          <img src="{% include item-image.txt item=project %}" class="w-100">
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h2>{{ project.title }}</h2>
+          <p class="lead">{{ project.subtitle }}</p>
+
+          <ul class="list-inline font-italic">
+            {% for role_slug in project.roles %}
+              {% assign roles = site.roles | where:"slug",role_slug %}
+              {% if roles[0] %}
+                <li class="list-inline-item">
+                  {{ roles[0].title }}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </a>
+      <hr class="hidden-md-up">
+    </li>
+  {% endfor %}
+</ul>

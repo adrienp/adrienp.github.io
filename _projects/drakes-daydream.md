@@ -2,6 +2,7 @@
 layout: project/video
 title: "Drake's Daydream"
 subtitle: "Drake dreams about being a puppet"
+date: "2016-04-29"
 
 video:
   youtube: 2-TFrKrFqYo
@@ -11,7 +12,7 @@ types:
 - video
 - sketch
 roles:
-- camera
+- camera-operator
 - actor
 
 width: 2

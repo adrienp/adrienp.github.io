@@ -2,5 +2,5 @@
 {% if item.image %}
   /images/{{ item.image }}
 {% elsif item.video.youtube %}
-  http://img.youtube.com/vi/{{ item.video.youtube }}/mqdefault.jpg
+  http://img.youtube.com/vi/{{ item.video.youtube }}/maxresdefault.jpg
 {% endif %}

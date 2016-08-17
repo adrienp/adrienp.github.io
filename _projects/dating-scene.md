@@ -2,6 +2,7 @@
 layout: project/video
 title: "Dating Scene"
 subtitle: "Stacey Betropoulos on the Scene"
+date: "2016-02-25"
 
 video:
   youtube: X1lUoJbsoJI

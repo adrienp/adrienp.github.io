@@ -25,6 +25,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:slug
+  roles:
+    output: true
+    permalink: /:collection/:slug
 
 defaults:
 - scope:
@@ -32,3 +35,8 @@ defaults:
     type: projects
   values:
     layout: project
+- scope:
+    path: ""
+    type: roles
+  values:
+    layout: default

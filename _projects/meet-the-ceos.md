@@ -2,6 +2,7 @@
 title: "Meet the CEOs: A Start-up Musical"
 subtitle: "A Musical Sketch Show"
 image: projects/meet-the-ceos.jpg
+date: "2016-07-18"
 
 group: geil
 types:
