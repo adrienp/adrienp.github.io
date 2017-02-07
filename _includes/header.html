@@ -1,51 +1,24 @@
-<header id="site-header">
-  <nav class="nav navbar-light navbar-fixed-top" id="top-nav">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ site.baseurl }}">{{ site.title }}</a>
-      <div class="pull-xs-right text-xs-right">
-        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#header-nav-pages" aria-controls="header-nav-pages" aria-expanded="false" aria-label="Toggle navigation">
-          &#9776;
-        </button>
-        <div class="collapse navbar-toggleable-sm" id="header-nav-pages">
-          <nav class="navbar-nav">
-            {% for page in site.pages %}
-              {% if page.title %}
-                <div class="nav-item">
-                  <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </ul>
+<header class="pt-3 bg-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 text-center col-md-auto text-md-left">
+        <div class="display-4 font-weight-lighter">
+          <a href="{{ site.baseurl }}" class="text-gray-dark">{{ site.title }}</a>
+        </div>
+        <div class="h3 font-weight-lightest text-lowercase">
+          {{ site.subtitle }}
         </div>
       </div>
-    </div>
-  </nav>
-
-  {% capture image_url %}
-    {% include item-image.txt item=page %}
-  {% endcapture %}
-
-  {% capture jumbotron_class %}
-    {% if page.header.dark %}
-      jumbotron-dark bg-inverse
-    {% elsif page.header.light %}
-      jumbotron-light
-    {% endif %}
-  {% endcapture %}
-
-  <div class="jumbotron jumbotron-fluid {{ jumbotron_class | strip }}" id="site-header-jumbotron">
-    <div class="jumbotron-background" style="background-image: url('{{ image_url | strip | default: site.image }}');">
-      <div class="jumbotron-overlay"></div>
-    </div>
-    <div class="jumbotron-content container">
-      <h1 class="display-3"><a href="{{ page.url | default: site.baseurl }}">{{ page.title | default: site.title }}</a></h1>
-      <p>
-        {% if page.title %}
-          {{ page.subtitle }}
-        {% else %}
-          {{ site.subtitle }}
-        {% endif %}
-      </p>
+      <div class="col">
+        <nav class="nav justify-content-center justify-content-md-end">
+          {% for site_page in site.pages %}
+            {% if site_page.title %}
+              <a class="nav-link {% if page == site_page %}active{% endif %}" href="{{ site_page.url }}">{{ site_page.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+      </div>
     </div>
   </div>
+  <hr class="hr-abstract mt-3">
 </header>

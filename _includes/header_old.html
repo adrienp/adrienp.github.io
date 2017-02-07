@@ -1,0 +1,69 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="display-1">
+          <a href="{{ site.baseurl }}">{{ site.title }}</a>
+        </div>
+        <div class="lead">
+          {{ site.subtitle }}
+        </div>
+      </div>
+      <div class="col-md">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--
+  <nav class="nav navbar-light navbar-fixed-top" id="top-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ site.baseurl }}">{{ site.title }}</a>
+      <div class="pull-xs-right text-xs-right">
+        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#header-nav-pages" aria-controls="header-nav-pages" aria-expanded="false" aria-label="Toggle navigation">
+          &#9776;
+        </button>
+        <div class="collapse navbar-toggleable-sm" id="header-nav-pages">
+          <nav class="navbar-nav">
+            {% for page in site.pages %}
+              {% if page.title %}
+                <div class="nav-item">
+                  <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% capture image_url %}
+    {% include item-image.txt item=page %}
+  {% endcapture %}
+
+  {% capture jumbotron_class %}
+    {% if page.header.dark %}
+      jumbotron-dark bg-inverse
+    {% elsif page.header.light %}
+      jumbotron-light
+    {% endif %}
+  {% endcapture %}
+
+  <div class="jumbotron jumbotron-fluid {{ jumbotron_class | strip }}" id="site-header-jumbotron">
+    <div class="jumbotron-background" style="background-image: url('{{ image_url | strip | default: site.image }}');">
+      <div class="jumbotron-overlay"></div>
+    </div>
+    <div class="jumbotron-content container">
+      <h1 class="display-3"><a href="{{ page.url | default: site.baseurl }}">{{ page.title | default: site.title }}</a></h1>
+      <p>
+        {% if page.title %}
+          {{ page.subtitle }}
+        {% else %}
+          {{ site.subtitle }}
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</header>
+-->

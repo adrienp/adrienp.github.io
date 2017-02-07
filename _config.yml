@@ -7,8 +7,9 @@
 
 # Site settings
 title: Adrien Pellerin
+subtitle: Actor in NYC
 image: /images/header.jpg
-email: adrienip@gmail.com
+email: adrien@adrienpellerin.com
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -17,6 +18,8 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://adrienpellerin.com" # the base hostname & protocol for your site
 twitter_username: adrienpellerin
 github_username:  adrienp
+excerpt_separator: <!--more-->
+permalink: /news/:categories/:title
 
 # Build settings
 markdown: kramdown
