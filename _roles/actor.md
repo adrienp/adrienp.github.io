@@ -1,5 +1,0 @@
----
-title: Actor
----
-
-Actor stuff
